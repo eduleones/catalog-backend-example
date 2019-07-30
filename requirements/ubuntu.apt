@@ -1,0 +1,5 @@
+make
+libmysqlclient-dev
+python3-dev
+docker
+docker-compose

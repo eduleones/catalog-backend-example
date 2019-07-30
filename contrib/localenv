@@ -1,0 +1,24 @@
+# Base
+DJANGO_SETTINGS_MODULE=config.settings
+DEBUG=True
+TEST=True
+SECRET_KEY=changeme
+SERVE_STATIC_FILES=False
+
+
+# Storage
+DATABASE_ENGINE=django.db.backends.mysql
+MYSQL_DATABASE_NAME=catalog
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+MYSQL_HOST=127.0.0.1
+MYSQL_PORT=3306
+
+# Assets
+STATICFILES_STORAGE=django.contrib.staticfiles.storage.StaticFilesStorage
+
+# Internationalization
+TIME_ZONE=America/Sao_Paulo
+
+# API Config
+SWAGGER_USE_HTTPS=False
