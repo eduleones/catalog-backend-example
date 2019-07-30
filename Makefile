@@ -40,6 +40,8 @@ install-backend-linux: requirements-apt requirements-pip migrate
 install-linux: conf-env install-backend-linux createsuperuser
 	@echo "[OK] Installation completed"
 
+create_token:
+	$(DJANGO_CMD) drf_create_token $(user)
 
 # Tests
 
