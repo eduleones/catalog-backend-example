@@ -280,37 +280,35 @@ class TestShoesViews:
         assert response.status_code == status.HTTP_404_NOT_FOUND
 
 
-# @pytest.mark.django_db
-# class TestShoesUploadFileViews:
+@pytest.mark.django_db
+class TestShoesUploadFileViews:
 
-#     def test__upload_file(
-#         self,
-#         authorized_client,
-#     ):
-#         filename = 'upload_file.csv'
-#         csv_file = File(open('files/upload_file.csv', 'rb'))
+    def test__upload_file(
+        self,
+        authorized_client,
+    ):
+        filename = 'upload_file.csv'
+        csv_file = File(open('files/upload_file.csv', 'rb'))
 
-#         uploaded_file = SimpleUploadedFile(
-#             filename,
-#             csv_file.read(),
-#             content_type='multipart/form-data',
-#         )
+        uploaded_file = SimpleUploadedFile(
+            filename,
+            csv_file.read(),
+            content_type='multipart/form-data',
+        )
 
-#         url = r('shoes:shoes_import')
+        url = r('shoes:shoes_import')
+        data = {
+            'file': uploaded_file,
+        }
 
-#         data = {
-#             'file': uploaded_file
-#         }
+        headers = {
+            'Content-Type': 'multipart/form-data',
+            'Content-Disposition': 'attachment; filename=upload_file.csv',
+        }
 
-#         headers = {
-#                 'Content-Type': 'multipart/form-data',
-#                 'Content-disposition': 'attachment;filename=upload_file.csv',
-#         }
-
-#         response = authorized_client.post(
-#             url,
-#             data,
-#             headers=headers,
-#             format='multipart'
-#         )
-#         assert response.status_code == status.HTTP_201_CREATED
+        response = authorized_client.post(
+            url,
+            data,
+            headers=headers
+        )
+        assert response.status_code == status.HTTP_201_CREATED
