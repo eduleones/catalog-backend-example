@@ -1,4 +1,3 @@
-import io
 import pytest
 from decimal import Decimal
 
