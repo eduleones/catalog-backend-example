@@ -3,6 +3,21 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.7.3
+        environment:
+          DJANGO_SETTINGS_MODULE: config.settings
+          DEBUG: True
+          TEST: True
+          SECRET_KEY: changeme
+          SERVE_STATIC_FILES: False
+          DATABASE_ENGINE: django.db.backends.mysql
+          MYSQL_DATABASE_NAME: catalog
+          MYSQL_USER: root
+          MYSQL_PASSWORD: password
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_PORT: 3306
+          STATICFILES_STORAGE: django.contrib.staticfiles.storage.StaticFilesStorage
+          TIME_ZONE: America/Sao_Paulo
+          SWAGGER_USE_HTTPS: False
       - image: mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: password
