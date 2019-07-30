@@ -1,3 +1,4 @@
+import io
 import pytest
 from decimal import Decimal
 
@@ -302,13 +303,13 @@ class TestShoesUploadFileViews:
         }
 
         headers = {
-            'Content-Type': 'multipart/form-data',
-            'Content-Disposition': 'attachment; filename=upload_file.csv',
+            'Content-Disposition': 'attachment;filename=upload_file.csv',
         }
-
         response = authorized_client.post(
             url,
             data,
             headers=headers
         )
         assert response.status_code == status.HTTP_201_CREATED
+        assert Shoes.objects.all().count() == 3
+        assert Shoes.objects.all()[0].brand == 'adidas'

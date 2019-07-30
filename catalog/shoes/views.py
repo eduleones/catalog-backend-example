@@ -1,7 +1,7 @@
 from rest_framework import generics, viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.parsers import FileUploadParser
+from rest_framework.parsers import FileUploadParser, MultiPartParser, FormParser
 
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -22,7 +22,7 @@ class ShoesViewSet(viewsets.ModelViewSet):
 
 
 class ShoesImport(APIView):
-    parser_classes = [FileUploadParser]
+    parser_classes = [MultiPartParser, FormParser]
 
     def post(self, request, format=None):
         csv_file = request.data['file']
