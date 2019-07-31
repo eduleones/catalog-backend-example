@@ -49,16 +49,24 @@ test: SHELL:=/bin/bash
 test: clean
 	export DEBUG=False && \
 	export TEST=True && \
-	export DATABASE_ENGINE=django.db.backends.sqlite3 && \
-	export MYSQL_DATABASE_NAME=catalog_test.sqlite3 && \
+	export DATABASE_ENGINE=django.db.backends.mysql && \
+	export MYSQL_DATABASE_NAME=catalog && \
+	export MYSQL_USER=root && \
+	export MYSQL_PASSWORD=password && \
+	export MYSQL_HOST=127.0.0.1 && \
+	export MYSQL_PORT=3306 && \
 	py.test catalog/ --ds=$(SETTINGS) -s
 
 test-matching: SHELL:=/bin/bash
 test-matching: clean
 	export DEBUG=False && \
 	export TEST=True && \
-	export DATABASE_ENGINE=django.db.backends.sqlite3 && \
-	export MYSQL_DATABASE_NAME=catalog_test.sqlite3 && \
+	export DATABASE_ENGINE=django.db.backends.mysql && \
+	export MYSQL_DATABASE_NAME=catalog && \
+	export MYSQL_USER=root && \
+	export MYSQL_PASSWORD=password && \
+	export MYSQL_HOST=127.0.0.1 && \
+	export MYSQL_PORT=3306 && \
 	py.test catalog/ -k $(test) --ds=$(SETTINGS) -s
 
 

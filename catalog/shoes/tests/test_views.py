@@ -126,11 +126,13 @@ class TestShoesViews:
         self,
         authorized_client
     ):
+        shoes = ShoesFactory(
+            sku='948230848',
+            brand='nike',
+            model='air'
+        )
 
-        for i in range(1, 5):
-            ShoesFactory(sku=str(i))
-
-        url = r('shoes:shoes_viewset', args=[1])
+        url = r('shoes:shoes_viewset', args=[shoes.pk])
         response = authorized_client.get(
             url,
             format='json'
@@ -139,9 +141,9 @@ class TestShoesViews:
         assert response.status_code == status.HTTP_200_OK
         data = response.json()['data']
 
-        assert data['brand'] == self.shoes.brand
-        assert data['model'] == self.shoes.model
-        assert data['price'] == '399.99'
+        assert data['brand'] == shoes.brand
+        assert data['model'] == shoes.model
+        assert data['sku'] == shoes.sku
 
     def test__get_shoes_not_found(
         self,
