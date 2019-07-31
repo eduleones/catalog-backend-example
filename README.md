@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/eduleones/catalog-backend-example.svg?style=svg)](https://circleci.com/gh/eduleones/catalog-backend-example)
+
 # Example Catalog API with DRF
 
 We use as an example a "shoes" CRUD. It was used for API:
