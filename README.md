@@ -74,7 +74,6 @@ curl -X POST \
   http://localhost:8000/shoes/csv_import/ \
   -H 'Authorization: Token {token}' \
   -H 'Content-disposition: attachment;filename=upload_file.csv' \
-  -H 'Postman-Token: 432bed2c-820b-405b-b451-78bc606b29f9' \
   -H 'cache-control: no-cache' \
   -F file=@upload_file.csv
 ```
