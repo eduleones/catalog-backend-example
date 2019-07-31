@@ -65,7 +65,7 @@ Enter your browser with the following address:
 
 ## Import csv file
 
-You can bulk upload "shoe" data. For this, get the template sheet here: CSV
+You can bulk upload "shoe" data. For this, get the template sheet here: [CSV](https://github.com/eduleones/catalog-backend-example/blob/master/files/upload_file.csv)
 
 Then send CSV file to API:
 
