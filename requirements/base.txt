@@ -5,7 +5,7 @@ djangorestframework==3.9.4
 django-cors-headers==3.0.2
 Markdown==3.1.1
 python-decouple==3.1
-PyYAML==5.1.1
+PyYAML==5.4
 requests==2.22.0
 mysqlclient==1.4.2.post1
 factory-boy==2.12.0
